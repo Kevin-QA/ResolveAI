@@ -1,0 +1,26 @@
+generator client {
+  provider      = "prisma-client-py"
+  interface     = "asyncio"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Ticket {
+  id           String   @id @default(cuid())
+  title        String
+  content      String
+  aiAnalysis   String?
+  aiRawOutput  Json?
+  severity     String
+  category     String?
+  status       String   @default("PENDING")
+  assignee     String?
+  source       String   @default("system")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("tickets")
+}

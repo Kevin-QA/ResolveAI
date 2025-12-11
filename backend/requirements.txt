@@ -1,0 +1,6 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+prisma==0.15.0  # 正确包名！PyPI 最新版，支持异步 + PostgreSQL
+httpx==0.27.0
+python-dotenv==1.0.1
+pydantic==2.9.2
